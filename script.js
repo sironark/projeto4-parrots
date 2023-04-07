@@ -1,6 +1,8 @@
 
-let quantasCartas,deck=0;
+let quantasCartas = 0;
+let deck=0;
 let arrayCartas=[];
+contador = 0;
 
 quantedadeDeCartas();
 
@@ -19,16 +21,61 @@ distribuirCartas();
 
 
 function distribuirCartas(){
-   
-   for(i=0; quantasCartas > i; i++){
+   let deck = document.querySelector(".cartasJogo");
+   let indice=0;
+   while(indice < quantasCartas){
+        indice++
+    deck.innerHTML+= '<div class="card" onclick="rotacionar2(this)"><div class="frontFace face" ><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/bobrossparrot.gif" alt=""></div></div>'
 
-    arrayCartas.push('<div onclick=alert("oi") class="card"><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""> </div>');
    }
-   deck = document.querySelector('.cartasJogo')
    
-   deck.innerHTML = arrayCartas;
-   console.log(deck)
+
+
+}
+
+function rotacionar2(elemento){
+
+    const rotate2 = elemento.querySelector(".frontFace");
+    rotate2.classList.add("rotate2");
    
-console.log(arrayCartas)
+    
+   
+   // setInterval(temporizador, 1000);
+
+   const rotate1 = elemento.querySelector('.backFace');
+    rotate1.classList.add('rotate1');
+    
+
+}
+
+
+   
+    
+
+
+    
+
+
+
+
+function temporizador(){
+
+    
+    contador = contador + 1;
+    console.log(contador);
+
+if(contador = 2){
+   
+    const i = document.querySelector('.backFace') ;
+    i.classList.remove('rotate1');
+
+    const o = document.querySelector('.frontFace') ;
+    o.classList.remove('rotate2');
+
+    
+    contador = 0;
+    const meuInterval = setInterval(temporizador,1000);
+    clearInterval(meuInterval);
+}
 
 }
