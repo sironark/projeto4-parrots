@@ -16,9 +16,10 @@
 <div class="container">
     <div class="title"><h1>PARROT CARD GAME</h1></div>
     <div class="cartasJogo">
-       
-        
-</div>
+       <!-- <div class="card" onclick="contagem(),rotacionar1(this)"><div class="frontFace face" ><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/bobrossparrot.gif" alt=""></div></div>
+        <div class="card" onclick="contagem(),rotacionar1(this)"><div class="frontFace face" ><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/explodyparrot.gif" alt=""> </div></div>
+       -->
+    </div>
 
 </div>
 
@@ -37,6 +38,24 @@
         </div>
         </div>  
     
+
+
+
+
+function temporizador(){
+
+   
+    const i = document.querySelector('.rotate1') ;
+    i.classList.remove('rotate1');
+
+    const o = document.querySelector('.rotate2') ;
+    o.classList.remove('rotate2');
+
+    
+   
+    const meuInterval = setInterval(temporizador,1000);
+    clearInterval(meuInterval);
+}
 -->
 
 </html>
