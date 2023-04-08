@@ -2,14 +2,13 @@
 let quantasCartas = 0;
 let deck=0;
 let arrayCartas=[
-    '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/bobrossparrot.gif" alt=""></div></div>',
+    '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class="one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/bobrossparrot.gif" alt=""></div></div>',
     '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/explodyparrot.gif" alt=""></div></div>',
     '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/fiestaparrot.gif" alt=""></div></div>',
     '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/metalparrot.gif" alt=""></div></div>',
     '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/revertitparrot.gif" alt=""></div></div>',
     '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/tripletsparrot.gif" alt=""></div></div>',
-    '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/unicornparrot.gif" alt=""></div></div>'
-];
+    '<div class="card" onclick="contagem(),rotacionar1(this)" data-test="card"><div class="frontFace face" ><img data-test="face-down-image" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png" alt=""></div><div class="backFace face"><img data-test="face-up-image" class"one" src="./Arquivos Úteis - Projeto 04 - Parrot Card Game/unicornparrot.gif" alt=""></div></div>']
 let global1;
 let global2;
 let jogada3=""; 
@@ -46,17 +45,18 @@ function distribuirCartas(){
     arrayCartasescolhidas.push()
 
    while(indice < conta){
+        
+        arrayCartasescolhidas.push(arrayCartas[indice]);
+        arrayCartasescolhidas.push(arrayCartas[indice]);
         indice++
-        arrayCartasescolhidas.push(arrayCartas[indice]);
-        arrayCartasescolhidas.push(arrayCartas[indice]);
 
    }
    arrayCartasescolhidas.sort(comparador)
    function comparador() { 
        return Math.random() - 0.5; 
    }
-   
-  deck.innerHTML+= arrayCartasescolhidas;
+   const deckEditado = arrayCartasescolhidas.join('')
+  deck.innerHTML+= deckEditado;
    
 }
 
@@ -72,11 +72,10 @@ contadorJogadas++
       
     if(contador == 2){
         jogada3 =rotate1.innerHTML;
-        console.log(jogada3)
         global2 = elemento
 
-        setTimeout(desvirarDiferentes, 1000);
-        meuInterval = setTimeout(desvirarDiferentes, 1000);
+        setTimeout(desvirarDiferentes, 500);
+        meuInterval = setTimeout(desvirarDiferentes, 500);
 
     } if(contador==1){
         jogada4 = rotate1.innerHTML;
@@ -86,7 +85,6 @@ contadorJogadas++
         jogada3 = "";
         jogada4 = "";
         contador=0;
-        console.log("cartas iguais")
         contadorFinalizador++
                   
     } if(contadorFinalizador == quantasCartas/2){
